@@ -4,10 +4,13 @@ Import('rtconfig')
 src   = []
 cwd   = GetCurrentDir()
 
-src += Glob('sensor_sr_shtc1.c')
-src += Glob('sensirion_i2c.c')
-src += Glob('lib/shtc1.c')
-src += Glob('lib/sensirion_common.c')
+if GetDepend("PKG_USING_SHTC1"):
+    src += Glob('lib/shtc1.c')
+    src += Glob('lib/sensirion_common.c')
+
+if GetDepend("PKG_SHTC1_USING_SENSOR_V1"):
+    src += Glob('sensor_sr_shtc1.c')
+    src += Glob('sensirion_i2c.c')
 
 # add lsm6dsl include path.
 path  = [cwd, cwd + '/lib']

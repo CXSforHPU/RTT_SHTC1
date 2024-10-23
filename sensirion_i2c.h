@@ -33,11 +33,19 @@
 #define SENSIRION_I2C_H
 
 #include "sensirion_arch_config.h"
+#include <rtdevice.h>
+#include <rtthread.h>
 
-#include "sensor.h"
 #define SHTC1_ADDR_DEFAULT (0xE0 >> 1)
 #define SHTC1_I2CBUS_NAME "i2c2"
 
+#if defined(RT_VERSION_CHECK)
+    #if (RTTHREAD_VERSION >= RT_VERSION_CHECK(5, 0, 2))
+        #define RT_SIZE_TYPE   rt_ssize_t
+    #else
+        #define RT_SIZE_TYPE   rt_size_t
+    #endif
+#endif
 
 #ifdef __cplusplus
 extern "C" {

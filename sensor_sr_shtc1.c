@@ -14,7 +14,7 @@
 #define SENSOR_TEMP_RANGE_MAX 60
 #define SENSOR_TEMP_RANGE_MIN 5
 
-static rt_size_t _shtc1_polling_get_data(rt_sensor_t sensor, struct rt_sensor_data *data)
+static RT_SIZE_TYPE _shtc1_polling_get_data(rt_sensor_t sensor, struct rt_sensor_data *data)
 {
 
     if (sensor->info.type == RT_SENSOR_CLASS_TEMP)
@@ -60,7 +60,7 @@ static rt_size_t _shtc1_polling_get_data(rt_sensor_t sensor, struct rt_sensor_da
     }
     return 1;
 }
-static rt_size_t _shtc1_fetch_data(struct rt_sensor_device *sensor, void *buf, rt_size_t len)
+static RT_SIZE_TYPE _shtc1_fetch_data(struct rt_sensor_device *sensor, void *buf, rt_size_t len)
 {
     RT_ASSERT(buf);
 
