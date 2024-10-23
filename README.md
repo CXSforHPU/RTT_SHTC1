@@ -66,7 +66,7 @@ int rt_hw_shtc1_init(const char *name, struct rt_sensor_config *cfg);
 #### 初始化示例
 
 ```
-#include "sensor_sr_shtc1.h"
+#include "sr_shtc1_sensor_v1.h"
 
 int shtc1_port(void)
 {
